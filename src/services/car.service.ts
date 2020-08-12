@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Car } from '../interfaces';
 
-export class CarService {
+export default class CarService {
     private baseUrl: string;
 
     constructor(baseUrl: string) {

@@ -1,4 +1,4 @@
-import { CarService } from "../services/car.service";
+import CarService from "../services/car.service";
 import { ActionCreator } from "redux";
 
 export interface Car {

@@ -31,14 +31,14 @@ export class CarList extends React.Component<CarListProps, CarListState> {
                         <TableRow key='control'>
                             <TableCell component="th" scope="row"></TableCell>
                             <TableCell>
-                                <TextField id="manufacturer" label="Manufacturer" variant="standard" size="small" onBlur={async (e: ChangeEvent) => {
+                                <TextField inputProps={{ "data-testid": "manufacturer" }} id="manufacturer" label="Manufacturer" variant="standard" size="small" onBlur={async (e: ChangeEvent) => {
                                     this.props.manufacturerAction((e.target as any).value);
                                     this.props.addCarsAction(await this.props.carService.getCars(1, 'asc', (e.target as any).value), this.props.color);
                                 }} />
                             </TableCell>
                             <TableCell></TableCell>
                             <TableCell>
-                                <TextField id="color" label="Color" variant="standard" size="small" onBlur={async (e: ChangeEvent) => {
+                                <TextField inputProps={{ "data-testid": "color" }} id="color" label="Color" variant="standard" size="small" onBlur={async (e: ChangeEvent) => {
                                     this.props.colorAction((e.target as any).value);
                                     this.props.addCarsAction(await this.props.carService.getCars(1, 'asc', this.props.manufacturer, (e.target as any).value));
                                 }} />
@@ -67,13 +67,13 @@ export class CarList extends React.Component<CarListProps, CarListState> {
     renderLoading(): ReactElement {
         return (
             <Container>
-                <CircularProgress />
+                <CircularProgress data-testid='circular-progress' />
             </Container>
         );
     }
 
     render(): ReactElement {
-        return this.props ? this.renderCars() : this.renderLoading();
+        return this.props.cars ? this.renderCars() : this.renderLoading();
     }
 }
 

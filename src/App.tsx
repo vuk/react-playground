@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Grid, Container, Typography } from '@material-ui/core';
-import { CarService } from './services/car.service';
+import CarService from './services/car.service';
 import CarList from './components/CarList';
 import { useStyles } from './styles';
 
@@ -17,8 +17,7 @@ function App() {
           <CarList carService={carService} />
         </Grid>
       </Grid>
-    </Container>
-  );
+    </Container>);
 }
 
 export default App;

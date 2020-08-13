@@ -1,11 +1,12 @@
 import { State, CarAction } from "../../interfaces";
-import { PICK_CAR, ADD_CARS, PICK_MANUFACTURER, PICK_COLOR, RESET } from "../actions";
+import { PICK_CAR, ADD_CARS, PICK_MANUFACTURER, PICK_COLOR, RESET, PICK_PAGE } from "../actions";
 
 const initialState: State = {
     manufacturer: '',
     color: '',
     cars: [],
-    car: null
+    car: null,
+    page: 1
 };
 
 const reducer = (state = initialState, action: CarAction) => {
@@ -26,11 +27,16 @@ const reducer = (state = initialState, action: CarAction) => {
             ...state,
             color: action.payload,
         }
+        case PICK_PAGE: return {
+            ...state,
+            page: action.payload
+        }
         case RESET: return {
             ...state,
             color: '',
             manufacturer: '',
-            car: null
+            car: null,
+            page: 1
         }
         default: return state
     }

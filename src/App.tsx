@@ -11,7 +11,9 @@ function App() {
   const classes = useStyles();
   return (
     <Container>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} direction="column"
+        alignItems="center"
+        justify="center">
         <Grid container item xs={12} spacing={3} className={classes.table}>
           <Typography variant="h1" component="h1" >Car listings</Typography>
           <CarList carService={carService} />

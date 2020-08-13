@@ -21,9 +21,11 @@ export interface CarListProps {
     cars: Car[];
     car?: Car;
     color?: string;
+    page?: number;
     classes?: any;
     manufacturer?: string;
     addCarsAction: ActionCreator<CarAction>;
+    setPageAction: ActionCreator<CarAction>;
     activateAction: ActionCreator<CarAction>;
     colorAction: ActionCreator<CarAction>;
     manufacturerAction: ActionCreator<CarAction>;
@@ -40,6 +42,7 @@ export interface State {
     color: string;
     cars: Car[];
     car: Car | null;
+    page: number;
 }
 
 export interface CarAction {
